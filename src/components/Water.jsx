@@ -1,8 +1,10 @@
-
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { redirect } from 'react-router';
+import ReactDOM from 'react-dom'
 
 const Timer = (props) => {
+  //these should all be in plant and then prop drilled down so we can unmount it in plant
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
@@ -18,6 +20,13 @@ const Timer = (props) => {
     setHours(Math.floor((time / (1000 * 60 * 60)) % 24));
     setMinutes(Math.floor((time / 1000 / 60) % 60));
     setSeconds(Math.floor((time / 1000) % 60));
+
+    if(time < 0){
+      setSeconds('done')
+      //update the database? :,)
+      // window.location.reload(false)
+
+    }
   };
 
   useEffect(() => {
@@ -25,34 +34,13 @@ const Timer = (props) => {
 
     return () => clearInterval(interval);
   }, []);
-
+////////////////////////////////////////////////////////////////////
   return (
-    <div className="timer" role="timer">
-    <div className="col-4">
+    <div className="timer" id='timer'>
       <div className="box">
-        <p id="day">{days < 10 ? "0" + days : days}</p>
-        <span className="text">Days</span>
+        <p id="minute">{minutes < 10 ? "0" + minutes : minutes} Minutes {seconds < 10 ? "0" + seconds : seconds} Seconds</p>
       </div>
     </div>
-    <div className="col-4">
-      <div className="box">
-        <p id="hour">{hours < 10 ? "0" + hours : hours}</p>
-        <span className="text">Hours</span>
-      </div>
-    </div>
-    <div className="col-4">
-      <div className="box">
-        <p id="minute">{minutes < 10 ? "0" + minutes : minutes}</p>
-        <span className="text">Minutes</span>
-      </div>
-    </div>
-    <div className="col-4">
-      <div className="box">
-        <p id="second">{seconds < 10 ? "0" + seconds : seconds}</p>
-        <span className="text">Seconds</span>
-      </div>
-    </div>
-  </div>
   );
 };
 

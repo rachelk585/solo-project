@@ -11,12 +11,11 @@ class App extends Component {
 
     this.state = {
       plantList : [],
-      waterList: []
+      message: ' is hydrated!'
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updatePlant = this.updatePlant.bind(this);
     this.deletePlant = this.deletePlant.bind(this);
-    // this.setWater = this.setWater.bind(this);
   }
 
   componentDidMount(){
@@ -31,9 +30,6 @@ class App extends Component {
     .catch(err => console.log('mount fetching error', err))
   };
 
-//const { name, species, location } = req.body; post request this
-//set the new plantlist state to rerender
-
   handleSubmit(event) {
     event.preventDefault();
     fetch('/plants', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({
@@ -45,13 +41,9 @@ class App extends Component {
     .then((data) => {
       let plantList = this.state.plantList;
       plantList.push(data);
-      let waterList = this.state.waterList;
-      waterList.push(0)
       this.setState({
         plantList:plantList,
-        waterList: waterList
       })
-      console.log(this.state)
     })
     .catch((err) => console.log('handlesubmit error', err))
   }
@@ -62,11 +54,8 @@ class App extends Component {
     .then((data) => {
       let plantList = this.state.plantList;
       plantList.splice(key, 1)
-      let waterList = this.state.waterList;
-      waterList.splice(key, 1)
       this.setState({
         plantList:plantList,
-        waterList: waterList
       })
     })
   }
@@ -89,23 +78,6 @@ class App extends Component {
       })
     })
   }
-
-  // setWater(key) {
-    
-  //   const getTime = () => {
-  //     const deadline = "April, 6, 2023";
-  //     const time = Date.parse(deadline) - Date.now();
-  //     const seconds = Math.floor((time/1000) % 60);
-  //     let waterList = this.state.waterList;
-  //     waterList[key] = seconds;
-  //     this.setState({
-  //       ...this.state,
-  //       waterList: waterList
-  //     })
-  //   }
-  //   getTime();
-  //   console.log(this.state)
-  // }
 
   render() {
     return (
