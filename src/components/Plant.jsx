@@ -5,15 +5,31 @@ import { useState, useEffect } from 'react';
 
 const Plant = props => {
   const [submitted, setSubmitted] = useState(false);
-  const [count, setCount] = useState(null)
-  const [timerOut, settimerOut] = useState(false)
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
 
-  //if {props.message === jsatledkjatkle then unhide the water me button? on click change back to well watered}
+  const getTime = (tm) => {
+    // const time = count - Date.now(); //<- counting up\
+    const countDown = tm - Date.now();
+
+    setMinutes(Math.floor(((countDown / 1000) / 60) % 60));
+    setSeconds(Math.floor((countDown / 1000) % 60));
+
+    if(countDown < 0){
+      console.log(variable)
+      setSubmitted(false);
+      document.getElementById(`${props.waterkee}`).hidden = false;
+      clearInterval(variable)
+    }
+  };
+
+  let variable;
 
   function myfunc(e) {
     e.preventDefault();
-    setCount(e.target.please.value)
+    const time = Date.parse(e.target.please.value);
     setSubmitted(true)
+    variable = setInterval(() => getTime(time), 1000);
   }
 
   return (
@@ -40,10 +56,25 @@ const Plant = props => {
         <input className="watering" type='datetime-local' name='please' defaultValue="2023-04-06T12:00" min="2023-04-06T7:00" max="2024-04-05T12:00"/>
         <input className="setwatering" type='submit' value='Set Next Water Date'></input>
       </form>
-      {submitted === true && count !== null && <Timer date={count}/>}
+      {submitted === true && <Timer minutes={minutes} seconds={seconds}/>}
+      <div id={props.waterkee} hidden={true}>
+        <p className="waterMessage">
+          {props.name} needs to be watered!
+        </p>
+        <button className="plantBoxBtn" onClick={() => {
+        let hiddenMsg = document.getElementById(`${props.waterkee}`);
+        hiddenMsg.hidden = true;
+        }}>
+          I've watered!
+        </button>
+      </div>
     </span>
 </div>
   )
+
+
+
+  
 }
 
 export default Plant;

@@ -44,6 +44,9 @@ h2 {
   font-size: 25px;
   text-align: center;
   margin: 10px;
+  padding: 10px;
+  padding-right: 15px;
+  background-color: rgba(240, 248, 255, 0.508);
 }
 
 .category {
@@ -122,6 +125,10 @@ h2 {
 .setwatering:hover{
   background-color: rgb(229, 238, 229);
   border:1px solid rgba(74, 119, 70, 0.227);
+}
+
+.waterMessage {
+  color: rgb(214, 63, 63)
 }
 
 h3 {
