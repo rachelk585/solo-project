@@ -1,34 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
 body {
+  background: url('./imgs/background.gif') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 #root {
+  background-color: rgba(240, 248, 255, 0.629);
   color: rgb(90, 144, 84);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'VT323', monospace;
 }
 
 h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 55px;
+  color: rgb(73, 117, 68)
 }
 h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 35px
 }
 
-h3 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.plantDisplay {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .plantBox {
+  font-size: 25px;
+  text-align: center;
+  margin: 10px;
+}
+
+.category {
+  color: rgb(73, 117, 68);
+}
+
+.plantBoxBtn {
+  background-color: rgb(140, 197, 133);
+  border: 1px solid rgb(182, 222, 176);
+  border-radius: 3px;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  color: whitesmoke;
+  font-family: 'VT323', monospace;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 10px
+}
+
+.plantBoxBtn:hover{
+  background-color: rgb(182, 222, 176);
+}
+
+.plantUpdateForm {
+  margin: 10px;
+  border:1px solid rgba(90, 144, 84, 0.227);
+  border-radius: 3px;
+  font-size: 15px;
+  color: rgb(50, 50, 50);
+  padding: 4px;
+}
+
+.plantUpdateForm:focus{
+  outline: none;
+  background-color:rgba(90, 144, 84, 0.227);
+}
+
+.plantUpdateBtn{
+  border:1px solid rgba(74, 119, 70, 0.227);
+  border-radius: 3px;
+  font-size: 15px;
+  color: rgb(50, 50, 50);
+  padding: 6px;
+  background-color: rgb(220, 230, 220);
+}
+
+.plantUpdateBtn:hover{
+  background-color: rgb(229, 238, 229);
+  border:1px solid rgba(74, 119, 70, 0.227);
+}
+
+.watering {
+  border: none;
+  margin: 10px;
+  font-size: 14px;
+  background-color: aliceblue;
+  padding: 5px
+}
+
+.watering:focus{
+  outline: none;
+}
+
+.setwatering {
+  border:1px solid rgba(74, 119, 70, 0.227);
+  border-radius: 3px;
+  font-size: 15px;
+  color: rgb(95, 95, 95);
+  padding: 6px;
+  background-color: rgb(220, 230, 220);
+  font-family: 'VT323', monospace;
+}
+
+.setwatering:hover{
+  background-color: rgb(229, 238, 229);
+  border:1px solid rgba(74, 119, 70, 0.227);
+}
+
+h3 {
   display: flex;
-  justify-content: left;
-  align-items: left;
-  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px
+}
+
+#plantCreator {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.createBox {
+  border:1px solid rgba(90, 144, 84, 0.227);
+  border-radius: 3px;
+  font-size: 15px;
+  color: rgb(50, 50, 50);
+  margin: 10px;
+  padding-left: 6px;
+  padding-right: 7px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  background-color: rgb(246, 251, 255);
+}
+
+.createBox:focus {
+  outline: none;
+  border:1px solid rgba(90, 144, 84, 0.227);
+  background-color:rgba(90, 144, 84, 0.227);
+}
+
+.createplantbtn:hover{
+  background-color: rgb(182, 222, 176);
+}
+
+.createplantbtn {
+  background-color: rgb(96, 138, 91);
+  border: 1px solid rgb(121, 156, 115);
+  border-radius: 3px;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  color: whitesmoke;
+  font-family: 'VT323', monospace;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 10px
 }

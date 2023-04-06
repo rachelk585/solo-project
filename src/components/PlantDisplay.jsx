@@ -9,8 +9,10 @@ const PlantDisplay = props => {
   }
   return (
     <div>
-        <h2> My Plants </h2>
+      <h2> My Plants </h2>
+      <div className ="plantDisplay">
         { plants }
+      </div>
     </div>
   )
 }

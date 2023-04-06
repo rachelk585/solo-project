@@ -16,6 +16,7 @@ const Timer = (props) => {
   const getTime = () => {
     const time = Date.parse(newVar) - Date.now();
 
+
     setDays(Math.floor(time / (1000 * 60 * 60 * 24)));
     setHours(Math.floor((time / (1000 * 60 * 60)) % 24));
     setMinutes(Math.floor((time / 1000 / 60) % 60));

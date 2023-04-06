@@ -18,27 +18,27 @@ const Plant = props => {
 
   return (
     <div className ='plantBox'>
-    <div>Name: {props.name}</div>
-    <div>Species: {props.species}</div>
-    <div>Location: {props.location}</div>
+    <div><span className='category'>Name:</span><span> {props.name}</span></div>
+    <div><span className='category'>Species:</span><span> {props.species}</span></div>
+    <div><span className='category'>Location:</span><span> {props.location}</span></div>
     {/* <div>{props.name} {props.message}</div> */}
     <span>
-      <button className="update" hidden={false} onClick={() => {
+      <button className="plantBoxBtn" onClick={() => {
         let hiddenForm = document.getElementById(`${props.kee}`);
         hiddenForm.hidden = false
         }}>Update Plant</button>
       <form id={props.kee} onSubmit = {props.updatePlant} hidden={true}>
-          <input name="name" type="text" defaultValue={props.name}></input>
-          <input name="species" type="text" defaultValue={props.species}></input>
-          <input name="location" type="text" defaultValue={props.location}></input>
-          <input name="id" type="text" defaultValue={props.id} hidden={true}></input>
-          <input name="key" type="text" defaultValue={props.kee} hidden={true}></input>
-          <input type="submit" value="update plant"></input>
+          <input className='plantUpdateForm' name="name" type="text" defaultValue={props.name}></input>
+          <input className='plantUpdateForm' name="species" type="text" defaultValue={props.species}></input>
+          <input className='plantUpdateForm' name="location" type="text" defaultValue={props.location}></input>
+          <input className='plantUpdateForm' name="id" type="text" defaultValue={props.id} hidden={true}></input>
+          <input className='plantUpdateForm' name="key" type="text" defaultValue={props.kee} hidden={true}></input>
+          <input className='plantUpdateBtn'type="submit" value="Update Plant"></input>
         </form>
-      <button onClick={() => props.deletePlant(props.id, props.kee)}>Compost Plant</button>
-      <form onSubmit = {myfunc}>
-        <input type='datetime-local' name='please' defaultValue="2023-04-05T12:00" min="2023-04-05T12:00" max="2024-04-05T12:00"/>
-        <input type='submit' value='set watering'></input>
+      <button className="plantBoxBtn" onClick={() => props.deletePlant(props.id, props.kee)}>Compost Plant</button>
+      <form className='wateringform' onSubmit = {myfunc}>
+        <input className="watering" type='datetime-local' name='please' defaultValue="2023-04-06T12:00" min="2023-04-06T7:00" max="2024-04-05T12:00"/>
+        <input className="setwatering" type='submit' value='Set Next Water Date'></input>
       </form>
       {submitted === true && count !== null && <Timer date={count}/>}
     </span>
